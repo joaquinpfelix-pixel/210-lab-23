@@ -106,4 +106,54 @@ int select_goat(list<Goat> trip)
              << g.get_color() << ")\n";
         index++;
     }
+
+    int choice;
+    cout << "Select goat: ";
+    cin >> choice;
+
+    while (choice < 1 || choice >= index)
+    {
+        cout << "EROR: Invalid choice: ";
+        cin >> choice;
+    }
+
+    return choice;
+}
+
+void delete_goat(list<Goat> &trip)
+{
+    if (trip.empty())
+    {
+        cout << "No goats to delte.\n";
+        return;
+    }
+
+    int choice = select_goat(trip);
+
+    auto it = trip.begin();
+    advance(it, choice - 1);
+
+    trip.erase(it);
+
+    cout << "Goat deleted.\n";
+}
+
+void dipslay_trip(list<Goat> trip)
+{
+    if (trip.empty())
+    {
+        cout << "No goats in the list.\n";
+        return;
+    }
+
+    int index = 1;
+
+    for (const Goat& g : trip)
+    {
+        cout << "[" << index++ << "]"
+             << g.get_name() << " ("
+             << g.get_age() << ", "
+             << g.get_color() << ")\n";
+        index++;
+    }
 }
