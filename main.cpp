@@ -59,3 +59,23 @@ int main() {
     return 0;
 }
 
+int main_menu() 
+{
+    int choice;
+
+    cout << "\n*** GOAT MANAGER 301 ***\n";
+    cout << "[1] Add a goat\n";
+    cout << "[2] Delete a goat\n";
+    cout << "[3] List goats\n";
+    cout << "[4] Quit\n";
+    
+    cin >> choice;
+
+    while (choice < 1 || choice > 5)
+    {
+        cout << "ERROR: Enter 1-4: ";
+        cin >> choice;
+    }
+
+    return choice;
+}
