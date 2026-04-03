@@ -29,6 +29,17 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
+    list<Goat> trip;
+    int choice;
+
+    do {
+        choice = main_menu();
+        switch (choice) {
+            case 1;
+                add-goat(trip, names, colors);
+        }
+    }
+
 
 
 
