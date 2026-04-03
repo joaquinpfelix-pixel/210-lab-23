@@ -63,7 +63,7 @@ int main_menu()
 {
     int choice;
 
-    cout << "\n*** GOAT MANAGER 301 ***\n";
+    cout << "\n*** GOAT MANAGER 3001 ***\n";
     cout << "[1] Add a goat\n";
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
@@ -71,7 +71,7 @@ int main_menu()
     
     cin >> choice;
 
-    while (choice < 1 || choice > 5)
+    while (choice < 1 || choice > 4)
     {
         cout << "ERROR: Enter 1-4: ";
         cin >> choice;
@@ -87,7 +87,7 @@ void add_goat(list<Goat> &trip,
     int randColor = rand() % SZ_COLORS;
     int age = rand() % (MAX_AGE + 1);
 
-    Goat g(names[randname], age, colors[randColor]);
+    Goat g(names[randName], age, colors[randColor]);
 
     trip.push_back(g);
     
@@ -100,7 +100,7 @@ int select_goat(list<Goat> trip)
 
     for (const Goat& g : trip)
     {
-        cout << "[" << index++ << "] "
+        cout << "[" << index << "] "
              << g.get_name() << " ("
              << g.get_age() << ", "
              << g.get_color() << ")\n";
@@ -113,7 +113,7 @@ int select_goat(list<Goat> trip)
 
     while (choice < 1 || choice >= index)
     {
-        cout << "EROR: Invalid choice: ";
+        cout << "ERROR: Invalid choice: ";
         cin >> choice;
     }
 
@@ -124,7 +124,7 @@ void delete_goat(list<Goat> &trip)
 {
     if (trip.empty())
     {
-        cout << "No goats to delte.\n";
+        cout << "No goats to delete.\n";
         return;
     }
 
@@ -138,7 +138,7 @@ void delete_goat(list<Goat> &trip)
     cout << "Goat deleted.\n";
 }
 
-void dipslay_trip(list<Goat> trip)
+void display_trip(list<Goat> trip)
 {
     if (trip.empty())
     {
@@ -150,7 +150,7 @@ void dipslay_trip(list<Goat> trip)
 
     for (const Goat& g : trip)
     {
-        cout << "[" << index++ << "]"
+        cout << "[" << index << "]"
              << g.get_name() << " ("
              << g.get_age() << ", "
              << g.get_color() << ")\n";
