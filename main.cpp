@@ -79,3 +79,31 @@ int main_menu()
 
     return choice;
 }
+
+void add_goat(list<Goat> &trip,
+              string names[], string colors[])
+{
+    int randName = rand() % SZ_NAMES;
+    int randColor = rand() % SZ_COLORS;
+    int age = rand() % (MAX_AGE + 1);
+
+    Goat g(names[randname], age, colors[randColor]);
+
+    trip.push_back(g);
+    
+    cout << "Goat added.\n";
+}
+
+int select_goat(list<Goat> trip)
+{
+    int index = 1;
+
+    for (const Goat& g : trip)
+    {
+        cout << "[" << index++ << "] "
+             << g.get_name() << " ("
+             << g.get_age() << ", "
+             << g.get_color() << ")\n";
+        index++;
+    }
+}
