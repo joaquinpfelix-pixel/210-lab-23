@@ -1,3 +1,4 @@
+// COMSC-210 || Lab 23 || Joaquin Felix
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -146,14 +147,22 @@ void display_trip(list<Goat> trip)
         return;
     }
 
+    cout << left << setw(5) << "No."
+         << setw(15) << "Name"
+         << setw(6) << "Age"
+         << setw(10) << "Color" << "\n";
+    cout << string(36, '-') << "\n";
+
     int index = 1;
 
     for (const Goat& g : trip)
     {
-        cout << "[" << index << "]"
-             << g.get_name() << " ("
-             << g.get_age() << ", "
-             << g.get_color() << ")\n";
+        cout << left
+             << setw(5) << index
+             << setw(15) << g.get_name()
+             << setw(6) << g.get_age()
+             << setw(10) << g.get_color() << "\n";
         index++;
     }
+    cout << "\nTotal goats: " << trip.size() << "\n\n";
 }
